@@ -61,6 +61,47 @@
             <div class="time"></div>
         </div>
 
+        <div>
+            <button onclick="clockIn()">Clock In</button>
+            <button onclick="clockOut()">Clock Out</button>
+        </div>
+
+        <!-- <table>
+            <th>Clock In</th>
+            <tr>
+                <td class="clockInData"></td>
+            </tr>
+        </table> -->
+
+        
+        <!-- <h6>Clock In Data: </h6>
+        <p id="clockInData"></p>
+        <h6>Clock Out Data: </h6>
+        <p id="clockOutData"></p>
+        <h6>Clock In Data: </h6>
+        <p id="totalTime"></p> -->
+
+        <table>
+            <tr>
+                <th>Clock In Time</th>
+                <th>Clock Out Time</th>
+                <th>Total Time</th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p id="clockInData"></p>
+                </td>
+                <td>
+                    <p id="clockOutData"></p>
+                </td>
+                <td>
+                    <p id="totalTime"></p>
+                </td>
+            </tr>
+        </table>
+
+
         <script>
             
         
@@ -98,6 +139,37 @@
 
             updateClock();
             setInterval(updateClock, 1000)
+
+            // var startTime = document.getElementById('clockInData').innerHTML;
+            
+            // var endTime  = document.getElementById('clockOutData').innerHTML;
+
+            function clockIn() {
+                startTime = new Date();
+                // startTime = t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
+                document.getElementById('clockInData').innerHTML = startTime;
+
+               
+                }
+
+            function clockOut() {
+                endTime = new Date(day, hours, minutes, seconds);
+                // endTime = t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
+                document.getElementById('clockOutData').innerHTML = endTime;
+                
+                
+                var timeDiff= endTime - startTime; //in ms
+                // strip the ms
+                timeDiff /= 1000;
+                var seconds = Math.round(timeDiff);
+                document.getElementById('totalTime').innerHTML = timeDiff;
+                }
+
+
+                    
+            
+
+
        </script>
     </body>
 
